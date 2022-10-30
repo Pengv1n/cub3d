@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "../cub3d.h"
 
 int	ft_namecheck(char *argv, char *ext)
 {
