@@ -46,13 +46,13 @@ int	check_border(t_data *data)
 	i = 0;
 	while (i < data->y_max)
 	{
-		if ((i == 0 || i == (data->y_max - 1)) &&
-				hunting_the_zero(data->map[i]))
+		if ((i == 0 || i == (data->y_max - 1))
+			&& hunting_the_zero(data->map[i]))
 			return (1);
 		j = 0;
 		while (ft_isprint(data->map[i][j]))
 			j++;
-		if (data->map[i][j - 1] != '1') //хз, может надо чекать и пробелы
+		if (data->map[i][j - 1] != '1')
 			return (1);
 		if (check_empty_spaces(data, i, j))
 			return (1);

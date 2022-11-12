@@ -51,8 +51,8 @@ void	init_map_norme(t_data *data, char *line, int fd)
 
 void	init_map(t_data *data, char *path)
 {
-	int	fd;
-	int	i;
+	int		fd;
+	int		i;
 	char	*line;
 
 	fd = open_file(path);
@@ -70,7 +70,7 @@ void	init_map(t_data *data, char *path)
 			free(line);
 			line = NULL;
 			alloc_map(data, fd);
-			break;
+			break ;
 		}
 		free(line);
 		line = get_next_line(fd);

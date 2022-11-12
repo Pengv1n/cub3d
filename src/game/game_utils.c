@@ -18,10 +18,10 @@ void	fill_path(t_data *data)
 	data->txts[SO_WALL].path = data->elem[1].path;
 	data->txts[WE_WALL].path = data->elem[2].path;
 	data->txts[EA_WALL].path = data->elem[3].path;
-    data->txts[NO_WALL].type = data->elem[0].type;
-    data->txts[SO_WALL].type = data->elem[1].type;
-    data->txts[WE_WALL].type = data->elem[2].type;
-    data->txts[EA_WALL].type = data->elem[3].type;
+	data->txts[NO_WALL].type = data->elem[0].type;
+	data->txts[SO_WALL].type = data->elem[1].type;
+	data->txts[WE_WALL].type = data->elem[2].type;
+	data->txts[EA_WALL].type = data->elem[3].type;
 }
 
 int	modify_mlx_new_img(void *mlx_ptr, t_img *image_str, int res_x, int res_y)
@@ -30,7 +30,7 @@ int	modify_mlx_new_img(void *mlx_ptr, t_img *image_str, int res_x, int res_y)
 	if (!image_str->img)
 		return (0);
 	image_str->addr = mlx_get_data_addr(image_str->img, &image_str->bpp,
-		&image_str->size_line, &image_str->endian);
+			&image_str->size_line, &image_str->endian);
 	return (1);
 }
 
@@ -47,7 +47,7 @@ int	init_txts_struct(t_data *data)
 {
 	fill_path(data);
 	if (!modify_mlx_new_img(data->mlx->mlx, data->ptr_img,
-		data->width_screen, data->height_screen))
+			data->width_screen, data->height_screen))
 		return (0);
 	if (!loading_txts(data, &data->txts[NO_WALL])
 		|| !loading_txts(data, &data->txts[SO_WALL])

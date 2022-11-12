@@ -25,6 +25,5 @@ int	main(int argc, char **argv)
 	read_file(&data, argv[1]);
 	game_launcher(&data);
 	game_loop(&data);
-
 	return (0);
 }

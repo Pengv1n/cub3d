@@ -34,7 +34,7 @@ char	*skip_newline(int fd)
 int	save_line(t_data *data, char *line)
 {
 	static int	y;
-	int	i;
+	int			i;
 
 	i = 0;
 	while (line[i])

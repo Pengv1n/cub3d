@@ -10,44 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_CUB3D_H
-#define CUB3D_CUB3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
-#include <stdio.h>
-#include "libft/libft.h"
-#include "minilibx_opengl_20191021/mlx.h"
-#include <fcntl.h>
-#include "get_next_line/get_next_line.h"
-#include <math.h>
+# include <stdio.h>
+# include "libft/libft.h"
+# include "minilibx_opengl_20191021/mlx.h"
+# include <fcntl.h>
+# include "get_next_line/get_next_line.h"
+# include <math.h>
 
-#define NO_WALL			0
-#define SO_WALL			1
-#define EA_WALL			2
-#define WE_WALL			3
+# define NO_WALL			0
+# define SO_WALL			1
+# define EA_WALL			2
+# define WE_WALL			3
 
 # define SPEED			0.15
 # define ROTATE			0.10
 
-#define XPM 1
-#define PNG 2
+# define XPM 1
+# define PNG 2
 
-#ifdef __APPLE__
-# define A_KEY 			0
-# define S_KEY			1
-# define D_KEY			2
-# define W_KEY			13
-# define LEFT_ARROW		123
-# define RIGHT_ARROW	124
-# define ESCAPE			53
-#else
-# define A_KEY 			97
-# define S_KEY			115
-# define D_KEY			100
-# define W_KEY			119
-# define LEFT_ARROW		65361
-# define RIGHT_ARROW	65363
-# define ESCAPE			65307
-#endif
+# ifdef __APPLE__
+#  define A_KEY 		0
+#  define S_KEY			1
+#  define D_KEY			2
+#  define W_KEY			13
+#  define LEFT_ARROW	123
+#  define RIGHT_ARROW	124
+#  define ESCAPE		53
+# else
+#  define A_KEY 		97
+#  define S_KEY			115
+#  define D_KEY			100
+#  define W_KEY			119
+#  define LEFT_ARROW	65361
+#  define RIGHT_ARROW	65363
+#  define ESCAPE		65307
+# endif
 
 typedef struct s_txt
 {
@@ -61,7 +61,7 @@ typedef struct s_txt
 	int				height;
 	int				txts_x;
 	char			*path;
-    int             type;
+	int				type;
 }	t_txt;
 
 typedef struct s_raycast
@@ -103,37 +103,37 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
-} t_mlx;
+}	t_mlx;
 
 typedef struct s_elem
 {
 	char	*id;
 	char	*path;
 	int		rgb[3];
-	int     type;
-} t_elem;
+	int		type;
+}	t_elem;
 
 typedef struct s_data
 {
-	t_elem	elem[6];
-	t_mlx	*mlx;
-	t_img 	*ptr_img;
+	t_elem		elem[6];
+	t_mlx		*mlx;
+	t_img		*ptr_img;
 	t_raycast	*raycast;
-	int	height_screen;
-	int	width_screen;
-	t_txt	txts[4];
-	int		y_max;
-	char	**map;
-	double	player_dir;
-	double	player_pos_x;
-	double	player_pos_y;
-	int				key_w;
-	int				key_a;
-	int				key_s;
-	int				key_d;
-	int				key_rotate_left;
-	int				key_rotate_right;
-} t_data;
+	int			height_screen;
+	int			width_screen;
+	t_txt		txts[4];
+	int			y_max;
+	char		**map;
+	double		player_dir;
+	double		player_pos_x;
+	double		player_pos_y;
+	int			key_w;
+	int			key_a;
+	int			key_s;
+	int			key_d;
+	int			key_rotate_left;
+	int			key_rotate_right;
+}	t_data;
 
 void	init_data(t_data *data);
 void	init_mlx(t_data *data);

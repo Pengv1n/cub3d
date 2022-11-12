@@ -19,8 +19,10 @@ int	skip_spaces(char **line)
 	return (0);
 }
 
-void	clean_free_tmp_split(char *tmp, char **split) {
-	if (tmp) {
+void	clean_free_tmp_split(char *tmp, char **split)
+{
+	if (tmp)
+	{
 		free(tmp);
 		tmp = NULL;
 	}
@@ -49,7 +51,7 @@ int	ft_strcmp(char *s1, char *s2)
 
 int	check_texture_path(t_elem *txt, char *path)
 {
-	int     i;
+	int	i;
 
 	if (!path)
 		return (1);
@@ -58,11 +60,11 @@ int	check_texture_path(t_elem *txt, char *path)
 		i++;
 	if (path[i] != '\0')
 		ft_memmove(path + i, path + (i + 1), 1);
-    if (check_extension(path, ".xpm"))
-        txt->type = XPM;
-    else if (check_extension(path, ".png"))
-        txt->type = PNG;
-    if (!txt->type)
+	if (check_extension(path, ".xpm"))
+		txt->type = XPM;
+	else if (check_extension(path, ".png"))
+		txt->type = PNG;
+	if (!txt->type)
 		return (0);
 	return (1);
 }

@@ -61,8 +61,8 @@ int	check_around_space(t_data *data, int pos_i, int pos_j)
 {
 	if (check_line(data, pos_i, pos_j))
 		return (1);
-	if (check_v_line_up(data, pos_i, pos_j) ||
-		check_v_line_down(data, pos_i, pos_j))
+	if (check_v_line_up(data, pos_i, pos_j)
+		|| check_v_line_down(data, pos_i, pos_j))
 		return (1);
 	return (0);
 }

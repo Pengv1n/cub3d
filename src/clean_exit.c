@@ -14,7 +14,7 @@
 
 void	clean_exit(t_data *data, int fd_gnl, int fd, char *msg)
 {
-	char *line;
+	char	*line;
 
 	if (fd_gnl >= 0)
 	{

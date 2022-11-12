@@ -31,6 +31,7 @@ void	init_elem(t_data *data)
 void	init_data(t_data *data)
 {
 	int	i;
+
 	init_elem(data);
 	data->mlx = malloc(sizeof(t_mlx));
 	data->ptr_img = malloc(sizeof(t_img));

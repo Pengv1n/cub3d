@@ -18,7 +18,7 @@ void	move_up_down(t_data *data, t_raycast *rc)
 	{
 		if (data->map[(int)data->player_pos_y]
 			[(int)(data->player_pos_x + rc->dir_x * SPEED)] != '1')
-			data->player_pos_x +=rc->dir_x * SPEED;
+			data->player_pos_x += rc->dir_x * SPEED;
 		if (data->map[(int)(data->player_pos_y + rc->dir_y * SPEED)]
 			[(int)data->player_pos_x] != '1')
 			data->player_pos_y += rc->dir_y * SPEED;
@@ -68,14 +68,14 @@ void	rotate_left_or_right(t_data *data, t_raycast *rc)
 		rotate = 1;
 	dir_x_old = rc->dir_x;
 	rc->dir_x = rc->dir_x * cos(rotate * ROTATE)
-			- rc->dir_y * sin(rotate * ROTATE);
+		- rc->dir_y * sin(rotate * ROTATE);
 	rc->dir_y = dir_x_old * sin(rotate * ROTATE)
-			+ rc->dir_y * cos(rotate * ROTATE);
+		+ rc->dir_y * cos(rotate * ROTATE);
 	plane_x_old = rc->plane_x;
 	rc->plane_x = rc->plane_x * cos(rotate * ROTATE)
-			- rc->plane_y * sin(rotate * ROTATE);
+		- rc->plane_y * sin(rotate * ROTATE);
 	rc->plane_y = plane_x_old * sin(rotate * ROTATE)
-			+ rc->plane_y * cos(rotate * ROTATE);
+		+ rc->plane_y * cos(rotate * ROTATE);
 }
 
 void	player_move(t_data *data, t_raycast *rc)

@@ -17,20 +17,20 @@ int	loading_txts(t_data *data, t_txt *texture)
 	int	i;
 	int	stop_load;
 
-    if (!texture->path)
-        return (0);
-    if (texture->type == PNG)
-        texture->img = mlx_png_file_to_image(data->mlx->mlx, texture->path,
-            &texture->width, &texture->height);
-    else
-        texture->img = mlx_xpm_file_to_image(data->mlx->mlx, texture->path,
-                                             &texture->width, &texture->height);
-    if (!texture->img)
-        return (0);
+	if (!texture->path)
+		return (0);
+	if (texture->type == PNG)
+		texture->img = mlx_png_file_to_image(data->mlx->mlx, texture->path,
+				&texture->width, &texture->height);
+	else
+		texture->img = mlx_xpm_file_to_image(data->mlx->mlx, texture->path,
+				&texture->width, &texture->height);
+	if (!texture->img)
+		return (0);
 	texture ->addr = (unsigned int *) mlx_get_data_addr(texture->img,
-		&texture->bpp, &texture->size_line, &texture->endian);
+			&texture->bpp, &texture->size_line, &texture->endian);
 	texture->txt = ft_calloc(texture->width * texture->height,
-							 sizeof(unsigned int));
+			sizeof(unsigned int));
 	if (!texture->txt)
 		return (0);
 	i = -1;
@@ -91,8 +91,9 @@ int	print_txts_helper(t_data *data, t_txt *txt, int y, int x)
 	color = 0;
 	while (y >= data->raycast->draw_start && y < data->raycast->draw_end)
 	{
-		txt_y = (int)(((y - data->height_screen / 2 + data->raycast->line_height / 2)
-				* txt->height) / data->raycast->line_height);
+		txt_y = (int)(((y - data->height_screen
+						/ 2 + data->raycast->line_height / 2)
+					* txt->height) / data->raycast->line_height);
 		color = txt->txt[txt->width * (int)floor(txt_y) + txt->txts_x];
 		modif_mlx_pixel_put(data->ptr_img, x, y, color);
 		++y;
@@ -111,11 +112,11 @@ void	print_txts(int x, t_data *data, t_raycast *rc)
 	side = ft_plan(rc);
 	txt_wall = choice_texture(side);
 	data->txts[txt_wall].txts_x = algo_txts_x(rc,
-		&data->txts[txt_wall], side);
+			&data->txts[txt_wall], side);
 	rgb[0] = trgb_convert(0, data->elem[5].rgb[0],
-		data->elem[5].rgb[1], data->elem[5].rgb[2]);
+			data->elem[5].rgb[1], data->elem[5].rgb[2]);
 	rgb[1] = trgb_convert(0, data->elem[4].rgb[0],
-		data->elem[4].rgb[1], data->elem[4].rgb[2]);
+			data->elem[4].rgb[1], data->elem[4].rgb[2]);
 	while (y < rc->draw_start)
 		modif_mlx_pixel_put(data->ptr_img, x, y++, rgb[0]);
 	y = print_txts_helper(data, &data->txts[txt_wall], y, x);

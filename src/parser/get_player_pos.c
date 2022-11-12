@@ -46,9 +46,11 @@ int	get_player_pos(t_data *data)
 	while (data->map[i])
 	{
 		j = 0;
-		while (data->map[i][j]) {
+		while (data->map[i][j])
+		{
 			if (data->map[i][j] == 'N' || data->map[i][j] == 'S'
-				|| data->map[i][j] == 'E' || data->map[i][j] == 'W') {
+				|| data->map[i][j] == 'E' || data->map[i][j] == 'W')
+			{
 				save_player_dir(data, data->map[i][j], i, j);
 				player++;
 			}

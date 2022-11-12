@@ -45,7 +45,7 @@ int	check_duplicate(t_data *data, char **sp)
 		{
 			if (data->elem[i].path)
 				return (1);
-			if (*(data->elem[i]).id == 'F'|| *(data->elem[i]).id == 'C')
+			if (*(data->elem[i]).id == 'F' || *(data->elem[i]).id == 'C')
 			{
 				if (get_int_value(&(data)->elem[i], sp))
 					return (1);
@@ -67,8 +67,8 @@ int	check_identifier(t_data *data, char *line, char ***split)
 	if (identify(line))
 		return (1);
 	*split = ft_split(line, ' ');
-	if (**split[0] == 'N' || **split[0] == 'S' ||
-		**split[0] == 'W' || **split[0] == 'E')
+	if (**split[0] == 'N' || **split[0] == 'S'
+		|| **split[0] == 'W' || **split[0] == 'E')
 	{
 		if (check_nb_element_texture(*split) || check_duplicate(data, *split))
 			return (1);
