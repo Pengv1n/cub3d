@@ -24,11 +24,11 @@ void	init_data(t_data *data)
 	data->ptr_img = malloc(sizeof(t_img));
 	data->raycast = malloc(sizeof(t_raycast));
 	if (!data->mlx || !data->ptr_img || !data->raycast)
-		;
-	*(data)->raycast = NULL;
-	data->height_screen = 400;
-	data->width_screen = 600;
+		clean_exit(data, -1, 2, "Error: init data failed\n");
+	*(data)->raycast = (t_raycast){};
+	data->width_screen = 1920;
+	data->height_screen = 1040;
 	i = -1;
 	while (++i < 4)
-		*data->txts[i] = NULL;
+		data->txts[i] = (t_txt){};
 }

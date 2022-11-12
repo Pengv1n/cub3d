@@ -14,8 +14,9 @@ LIBFT := libft.a
 HEADERS :=	cub3d.h
 
 SRC_DIR := src
-SRC_ :=	main.c	\
-		check.c
+SRC_ :=	main.c \
+		init_data.c
+
 SRC := $(addprefix $(SRC_DIR)/,$(SRC_))
 
 OBJ_DIR := obj
