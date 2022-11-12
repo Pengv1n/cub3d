@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 19:59:14 by aregenia          #+#    #+#             */
+/*   Updated: 2022/11/12 19:59:15 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 int	skip_spaces(char **line)
@@ -35,9 +47,9 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-int	check_texture_path(char *path)
+int	check_texture_path(t_elem *txt, char *path)
 {
-	int	i;
+	int     i;
 
 	if (!path)
 		return (1);
@@ -46,7 +58,11 @@ int	check_texture_path(char *path)
 		i++;
 	if (path[i] != '\0')
 		ft_memmove(path + i, path + (i + 1), 1);
-	if (check_extension(path, ".xpm"))
-		return (1);
-	return (0);
+    if (check_extension(path, ".xpm"))
+        txt->type = XPM;
+    else if (check_extension(path, ".png"))
+        txt->type = PNG;
+    if (!txt->type)
+		return (0);
+	return (1);
 }

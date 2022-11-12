@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
-# set the project name
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Imlx -lXext -lX11 -lm -lz -I minilibx/")
 project(cub3d)
 
-# add the executable
 add_executable(cub3d src/main.c
         src/init_data.c
         src/init_mlx.c
@@ -32,11 +29,14 @@ add_executable(cub3d src/main.c
         src/game/choice_textute.c
         src/game/player_move.c
         src/game/raycasting.c
-        )
+)
 
-#add_compile_options(-Imlx -lXext -lX11 -lm -lz)
-#add_link_options(-Imlx -lXext -lX11 -lm -lz)
-#target_compile_options(cub3d PUBLIC -Imlx -lXext -lX11 -lm -lz)
-target_link_libraries(cub3d LINK_PUBLIC /home/aregenia/school21/cub3d/libft/libft.a
-        /home/aregenia/school21/cub3d/minilibx/libmlx.a
-        -Imlx Xext X11 m z bsd)
+include_directories(minilibx_opengl_20191021)
+
+find_library(OPENGL_LIB OpenGL)
+find_library(APPKIT_LIB AppKit)
+set(MLX_LIB z m ${OPENGL_LIB} ${APPKIT_LIB})
+
+target_link_libraries(cub3d LINK_PUBLIC /Users/aregenia/Projects/cub3d/libft/libft.a
+        /Users/aregenia/Projects/cub3d/minilibx_opengl_20191021/libmlx.a
+        ${MLX_LIB})

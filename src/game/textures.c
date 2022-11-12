@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   textures.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 19:57:39 by aregenia          #+#    #+#             */
+/*   Updated: 2022/11/12 19:57:40 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 int	loading_txts(t_data *data, t_txt *texture)
@@ -5,11 +17,17 @@ int	loading_txts(t_data *data, t_txt *texture)
 	int	i;
 	int	stop_load;
 
-	texture->img = mlx_xpm_file_to_image(data->mlx->mlx, texture->path,
-		&texture->width, &texture->height);
-	if (!texture->path)
-		return (0);
-	texture->addr = (unsigned int *) mlx_get_data_addr(texture->img,
+    if (!texture->path)
+        return (0);
+    if (texture->type == PNG)
+        texture->img = mlx_png_file_to_image(data->mlx->mlx, texture->path,
+            &texture->width, &texture->height);
+    else
+        texture->img = mlx_xpm_file_to_image(data->mlx->mlx, texture->path,
+                                             &texture->width, &texture->height);
+    if (!texture->img)
+        return (0);
+	texture ->addr = (unsigned int *) mlx_get_data_addr(texture->img,
 		&texture->bpp, &texture->size_line, &texture->endian);
 	texture->txt = ft_calloc(texture->width * texture->height,
 							 sizeof(unsigned int));

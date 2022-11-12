@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   element_parsing.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 19:58:43 by aregenia          #+#    #+#             */
+/*   Updated: 2022/11/12 19:58:44 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 int	check_nb_element_texture(char **info)
@@ -40,7 +52,7 @@ int	check_duplicate(t_data *data, char **sp)
 				data->elem[i].path = ft_strdup("FILLED");
 				return (0);
 			}
-			else if (check_texture_path(sp[1]))
+			else if (check_texture_path(&data->elem[i], sp[1]))
 			{
 				data->elem[i].path = ft_strdup(sp[1]);
 				return (0);

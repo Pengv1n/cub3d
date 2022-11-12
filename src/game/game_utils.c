@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 19:57:02 by aregenia          #+#    #+#             */
+/*   Updated: 2022/11/12 19:57:03 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 void	fill_path(t_data *data)
@@ -6,6 +18,10 @@ void	fill_path(t_data *data)
 	data->txts[SO_WALL].path = data->elem[1].path;
 	data->txts[WE_WALL].path = data->elem[2].path;
 	data->txts[EA_WALL].path = data->elem[3].path;
+    data->txts[NO_WALL].type = data->elem[0].type;
+    data->txts[SO_WALL].type = data->elem[1].type;
+    data->txts[WE_WALL].type = data->elem[2].type;
+    data->txts[EA_WALL].type = data->elem[3].type;
 }
 
 int	modify_mlx_new_img(void *mlx_ptr, t_img *image_str, int res_x, int res_y)

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/12 19:55:06 by aregenia          #+#    #+#             */
+/*   Updated: 2022/11/12 19:55:12 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_CUB3D_H
 #define CUB3D_CUB3D_H
 
-#include "stdio.h"
-#include "../libft/libft.h"
-#include "minilibx/mlx.h"
+#include <stdio.h>
+#include "libft/libft.h"
+#include "minilibx_opengl_20191021/mlx.h"
 #include <fcntl.h>
 #include "get_next_line/get_next_line.h"
 #include <math.h>
@@ -16,6 +28,18 @@
 # define SPEED			0.15
 # define ROTATE			0.10
 
+#define XPM 1
+#define PNG 2
+
+#ifdef __APPLE__
+# define A_KEY 			0
+# define S_KEY			1
+# define D_KEY			2
+# define W_KEY			13
+# define LEFT_ARROW		123
+# define RIGHT_ARROW	124
+# define ESCAPE			53
+#else
 # define A_KEY 			97
 # define S_KEY			115
 # define D_KEY			100
@@ -23,6 +47,7 @@
 # define LEFT_ARROW		65361
 # define RIGHT_ARROW	65363
 # define ESCAPE			65307
+#endif
 
 typedef struct s_txt
 {
@@ -36,6 +61,7 @@ typedef struct s_txt
 	int				height;
 	int				txts_x;
 	char			*path;
+    int             type;
 }	t_txt;
 
 typedef struct s_raycast
@@ -84,6 +110,7 @@ typedef struct s_elem
 	char	*id;
 	char	*path;
 	int		rgb[3];
+	int     type;
 } t_elem;
 
 typedef struct s_data
@@ -118,7 +145,6 @@ void	clean_free_tmp_split(char *tmp, char **split);
 int		substitute_coma(char *line);
 int		ft_strcmp(char *s1, char *s2);
 int		get_int_value(t_elem *elem, char **split);
-int		check_texture_path(char *path);
 int		element_parsing(t_data *data, int fd);
 void	free_all(t_data *data);
 void	clean_exit(t_data *data, int fd_gnl, int fd, char *msg);
@@ -141,5 +167,6 @@ void	modif_mlx_pixel_put(t_img *image_str, int x, int y, int color);
 void	print_txts(int x, t_data *data, t_raycast *rc);
 int		raycasting(t_data *data, t_raycast *rc);
 void	game_loop(t_data *data);
+int		check_texture_path(t_elem *txt, char *path);
 
 #endif //CUB3D_CUB3D_H
