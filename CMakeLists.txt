@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.10)
 
 project(cub3d)
@@ -29,14 +30,16 @@ add_executable(cub3d src/main.c
         src/game/choice_textute.c
         src/game/player_move.c
         src/game/raycasting.c
-)
+        )
 
-include_directories(minilibx_opengl_20191021)
+if (UNIX)
+    target_link_libraries(cub3d LINK_PUBLIC /home/aregenia/school21/cub3d/libft/libft.a
+        /home/aregenia/school21/cub3d/minilibx_opengl_20191021/libmlx.a
+        -Imlx Xext X11 m z bsd)
+endif()
 
-find_library(OPENGL_LIB OpenGL)
-find_library(APPKIT_LIB AppKit)
-set(MLX_LIB z m ${OPENGL_LIB} ${APPKIT_LIB})
-
-target_link_libraries(cub3d LINK_PUBLIC /Users/aregenia/Projects/cub3d/libft/libft.a
-        /Users/aregenia/Projects/cub3d/minilibx_opengl_20191021/libmlx.a
-        ${MLX_LIB})
+if (APPLE)
+    target_link_libraries(cub3d LINK_PUBLIC /Users/aregenia/Projects/cub3d/libft/libft.a
+            /Users/aregenia/Projects/cub3d/minilibx_opengl_20191021/libmlx.a
+            ${MLX_LIB})
+endif()
