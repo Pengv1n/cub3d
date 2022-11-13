@@ -25,9 +25,8 @@
 # define EA_WALL			2
 # define WE_WALL			3
 
-# define EPS    1e-4
-
-# define SPEED			0.15
+# define SPEED			0.1
+# define CHECK_SPEED    (SPEED + 0.05)
 # define ROTATE			0.10
 
 # define XPM 1

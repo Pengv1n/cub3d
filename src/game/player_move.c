@@ -17,18 +17,18 @@ void	move_up_down(t_data *data, t_raycast *rc)
 	if (data->key_w == 1)
 	{
 		if (data->map[(int)data->player_pos_y]
-			[(int)(data->player_pos_x + rc->dir_x * SPEED + EPS)] != '1')
+			[(int)(data->player_pos_x + rc->dir_x * CHECK_SPEED)] != '1')
 			data->player_pos_x += rc->dir_x * SPEED;
-		if (data->map[(int)(data->player_pos_y + rc->dir_y * SPEED + EPS) ]
+		if (data->map[(int)(data->player_pos_y + rc->dir_y * CHECK_SPEED) ]
 			[(int)data->player_pos_x] != '1')
 			data->player_pos_y += rc->dir_y * SPEED;
 	}
 	if (data->key_s == 1)
 	{
 		if (data->map[(int)data->player_pos_y]
-			[(int)(data->player_pos_x - rc->dir_x * SPEED - EPS)] != '1')
+			[(int)(data->player_pos_x - rc->dir_x * CHECK_SPEED)] != '1')
 			data->player_pos_x -= rc->dir_x * SPEED;
-		if (data->map[(int)(data->player_pos_y - rc->dir_y * SPEED - EPS)]
+		if (data->map[(int)(data->player_pos_y - rc->dir_y * CHECK_SPEED)]
 			[(int)data->player_pos_x] != '1')
 			data->player_pos_y -= rc->dir_y * SPEED;
 	}
@@ -38,20 +38,20 @@ void	move_left_right(t_data *data, t_raycast *rc)
 {
 	if (data->key_a == 1)
 	{
-		if (data->map[(int)(data->player_pos_y - rc->dir_x * SPEED - EPS)]
-			[(int)(data->player_pos_x + rc->dir_y * SPEED + EPS)] != '1')
+		if (data->map[(int)(data->player_pos_y - rc->dir_x * CHECK_SPEED / 2)]
+			[(int)(data->player_pos_x + rc->dir_y * CHECK_SPEED / 2)] != '1')
 		{
-			data->player_pos_x += rc->dir_y * SPEED;
-			data->player_pos_y -= rc->dir_x * SPEED;
+			data->player_pos_x += rc->dir_y * SPEED / 2;
+			data->player_pos_y -= rc->dir_x * SPEED / 2;
 		}
 	}
 	else if (data->key_d == 1)
 	{
-		if (data->map[(int)(data->player_pos_y + rc->dir_x * SPEED + EPS)]
-			[(int)(data->player_pos_x - rc->dir_y * SPEED - EPS)] != '1')
+		if (data->map[(int)(data->player_pos_y + rc->dir_x * CHECK_SPEED / 2)]
+			[(int)(data->player_pos_x - rc->dir_y * CHECK_SPEED / 2)] != '1')
 		{
-			data->player_pos_x -= rc->dir_y * SPEED;
-			data->player_pos_y += rc->dir_x * SPEED;
+			data->player_pos_x -= rc->dir_y * SPEED / 2;
+			data->player_pos_y += rc->dir_x * SPEED / 2;
 		}
 	}
 }

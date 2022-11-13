@@ -1,0 +1,7 @@
+cmake-build-debug
+*.o
+*.a
+obj
+cub3d
+.idea
+.DS_Store

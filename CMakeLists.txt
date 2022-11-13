@@ -32,20 +32,25 @@ add_executable(cub3d src/main.c
         src/game/raycasting.c
         )
 
-include_directories(minilibx_opengl_20191021)
+add_custom_target(mlx ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_opengl_20191021)
+add_custom_target(libft ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/libft)
 
-#if (__UNIX__)
-#    target_link_libraries(cub3d LINK_PUBLIC /home/aregenia/school21/cub3d/libft/libft.a
-#        /home/aregenia/school21/cub3d/minilibx_opengl_20191021/libmlx.a
-#        -Imlx Xext X11 m z bsd)
-#endif()
+find_library(LIBFT ft libft)
 
-#if (__APPLE__)
+if (APPLE)
+    include_directories(minilibx_opengl_20191021)
+    find_library(MINILIBX mlx minilibx_opengl_20191021)
     find_library(OPENGL_LIB OpenGL)
     find_library(APPKIT_LIB AppKit)
     set(MLX_LIB z m ${OPENGL_LIB} ${APPKIT_LIB})
 
-    target_link_libraries(cub3d LINK_PUBLIC /Users/aregenia/Projects/cub3d/libft/libft.a
-            /Users/aregenia/Projects/cub3d/minilibx_opengl_20191021/libmlx.a
+    target_link_libraries(cub3d LINK_PUBLIC ${LIBFT}
+            ${MINILIBX}
             ${MLX_LIB})
-#endif()
+else ()
+    include_directories(minilibx)
+    find_library(MINILIBX mlx minilibx)
+    target_link_libraries(cub3d LINK_PUBLIC ${LIBFT}
+            ${MINILIBX}
+            -Imlx Xext X11 m z bsd)
+endif()
