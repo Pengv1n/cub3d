@@ -28,16 +28,6 @@
 #include	<X11/extensions/XShm.h>
 /* #include	<X11/xpm.h> */
 
-void    *mlx_png_file_to_image(void *xvar, char *file, int *width, int *height);
-
-typedef struct	mlx_img_list_s
-{
-    int			width;
-    int			height;
-    char			*buffer;
-    float		vertexes[8];
-    struct mlx_img_list_s	*next;
-} mlx_img_list_t;
 
 #define	MLX_TYPE_SHM_PIXMAP	3
 #define	MLX_TYPE_SHM		2

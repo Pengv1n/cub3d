@@ -21,7 +21,6 @@ int	exit_game(t_data *data)
 		mlx_destroy_image(data->mlx->mlx, data->txts[i].img);
 	mlx_destroy_image(data->mlx->mlx, data->ptr_img->img);
 	mlx_clear_window(data->mlx->mlx, data->mlx->win);
-	mlx_destroy_image(data->mlx->mlx, data->mlx->win);
 	free_all(data);
 	exit(1);
 	return (1);

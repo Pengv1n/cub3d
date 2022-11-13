@@ -2,15 +2,14 @@ CC := gcc
 
 NAME := cub3d
 
-MINILIBX_DIR := minilibx_opengl_20191021
+MINILIBX_DIR := minilibx
 MINILIBX_LIB := $(MINILIBX_DIR)/libmlx.a
 
 FLAGS := -Wall -Wextra -Werror
-MINILIBX_FLAGS_MAC := -L$(MINILIBX_DIR) -lmlx -lz -lm	\
-                      -framework OpenGL					\
-                      -framework AppKit
-
-#MINILIBX_FLAGS_LINUX := -Imlx -lXext -lX11 -lm -lz
+#MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm	\
+#                      -framework OpenGL					\
+#                      -framework AppKit
+MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz
 
 LIBFT_DIR := libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -66,7 +65,7 @@ $(OBJ_DIR):
 $(NAME): $(OBJ) $(SRC)
 	make -C $(MINILIBX_DIR) all
 	make -C $(LIBFT_DIR) all
-	$(CC) $(OBJ) $(LIBFT) $(MINILIBX_LIB) $(FLAGS) -o $(NAME) $(MINILIBX_FLAGS_MAC)
+	$(CC) $(OBJ) $(LIBFT) $(MINILIBX_LIB) $(FLAGS) -o $(NAME) $(MINILIBX_FLAGS)
 
 clean:
 	make -C $(MINILIBX_DIR) clean

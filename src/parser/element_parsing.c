@@ -52,7 +52,7 @@ int	check_duplicate(t_data *data, char **sp)
 				data->elem[i].path = ft_strdup("FILLED");
 				return (0);
 			}
-			else if (check_texture_path(&data->elem[i], sp[1]))
+			else if (check_texture_path(sp[1]))
 			{
 				data->elem[i].path = ft_strdup(sp[1]);
 				return (0);

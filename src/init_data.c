@@ -39,8 +39,8 @@ void	init_data(t_data *data)
 	if (!data->mlx || !data->ptr_img || !data->raycast)
 		clean_exit(data, -1, 2, "Error: init data failed\n");
 	*(data)->raycast = (t_raycast){};
-	data->width_screen = 1920;
-	data->height_screen = 1040;
+	data->width_screen = WIDTH_SCREEN;
+	data->height_screen = HEIGHT_SCREEN;
 	i = -1;
 	while (++i < 4)
 		data->txts[i] = (t_txt){};

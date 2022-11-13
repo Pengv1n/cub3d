@@ -20,6 +20,9 @@
 # include "get_next_line.h"
 # include <math.h>
 
+# define HEIGHT_SCREEN	1040
+# define WIDTH_SCREEN	1920
+
 # define NO_WALL			0
 # define SO_WALL			1
 # define EA_WALL			2
@@ -28,9 +31,6 @@
 # define SPEED			0.1
 # define CHECK_SPEED    (SPEED + 0.05)
 # define ROTATE			0.10
-
-# define XPM 1
-# define PNG 2
 
 # ifdef __APPLE__
 #  define A_KEY 		0
@@ -62,7 +62,6 @@ typedef struct s_txt
 	int				height;
 	int				txts_x;
 	char			*path;
-	int				type;
 }	t_txt;
 
 typedef struct s_raycast
@@ -111,7 +110,6 @@ typedef struct s_elem
 	char	*id;
 	char	*path;
 	int		rgb[3];
-	int		type;
 }	t_elem;
 
 typedef struct s_data
@@ -168,6 +166,6 @@ void	modif_mlx_pixel_put(t_img *image_str, int x, int y, int color);
 void	print_txts(int x, t_data *data, t_raycast *rc);
 int		raycasting(t_data *data, t_raycast *rc);
 void	game_loop(t_data *data);
-int		check_texture_path(t_elem *txt, char *path);
+int		check_texture_path(char *path);
 
 #endif //CUB3D_CUB3D_H

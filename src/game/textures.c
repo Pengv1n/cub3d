@@ -19,12 +19,8 @@ int	loading_txts(t_data *data, t_txt *texture)
 
 	if (!texture->path)
 		return (0);
-	if (texture->type == PNG)
-		texture->img = mlx_png_file_to_image(data->mlx->mlx, texture->path,
-				&texture->width, &texture->height);
-	else
-		texture->img = mlx_xpm_file_to_image(data->mlx->mlx, texture->path,
-				&texture->width, &texture->height);
+	texture->img = mlx_xpm_file_to_image(data->mlx->mlx, texture->path,
+			&texture->width, &texture->height);
 	if (!texture->img)
 		return (0);
 	texture ->addr = (unsigned int *) mlx_get_data_addr(texture->img,

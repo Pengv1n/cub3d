@@ -49,7 +49,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-int	check_texture_path(t_elem *txt, char *path)
+int	check_texture_path(char *path)
 {
 	int	i;
 
@@ -61,10 +61,6 @@ int	check_texture_path(t_elem *txt, char *path)
 	if (path[i] != '\0')
 		ft_memmove(path + i, path + (i + 1), 1);
 	if (check_extension(path, ".xpm"))
-		txt->type = XPM;
-	else if (check_extension(path, ".png"))
-		txt->type = PNG;
-	if (!txt->type)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }

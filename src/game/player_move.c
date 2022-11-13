@@ -19,7 +19,7 @@ void	move_up_down(t_data *data, t_raycast *rc)
 		if (data->map[(int)data->player_pos_y]
 			[(int)(data->player_pos_x + rc->dir_x * CHECK_SPEED)] != '1')
 			data->player_pos_x += rc->dir_x * SPEED;
-		if (data->map[(int)(data->player_pos_y + rc->dir_y * CHECK_SPEED) ]
+		if (data->map[(int)(data->player_pos_y + rc->dir_y * CHECK_SPEED)]
 			[(int)data->player_pos_x] != '1')
 			data->player_pos_y += rc->dir_y * SPEED;
 	}

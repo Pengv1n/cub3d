@@ -1,10 +1,10 @@
-NO /Users/aregenia/Projects/cub3d/txts_png/eagle.png
-SO /Users/aregenia/Projects/cub3d/txts_xpm/WOLF1.xpm
-WE /Users/aregenia/Projects/cub3d/txts_xpm/WOLF2.xpm
-EA /Users/aregenia/Projects/cub3d/txts_png/purplestone.png
+NO /home/aregenia/school21/cub3d/txts_xpm/anime1.xpm
+SO /home/aregenia/school21/cub3d/txts_xpm/anime2.xpm
+WE /home/aregenia/school21/cub3d/txts_xpm/anime3.xpm
+EA /home/aregenia/school21/cub3d/txts_xpm/anime4.xpm
 
-F 220,100,0
-C 225,30,0
+F 255,0,98
+C 3,213,255
 
         1111111111111111111111111
         1000000000110000000000001

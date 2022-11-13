@@ -36,10 +36,10 @@ add_custom_target(mlx ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_o
 add_custom_target(libft ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/libft)
 
 find_library(LIBFT ft libft)
+include_directories(minilibx)
+find_library(MINILIBX mlx minilibx)
 
 if (APPLE)
-    include_directories(minilibx_opengl_20191021)
-    find_library(MINILIBX mlx minilibx_opengl_20191021)
     find_library(OPENGL_LIB OpenGL)
     find_library(APPKIT_LIB AppKit)
     set(MLX_LIB z m ${OPENGL_LIB} ${APPKIT_LIB})
@@ -48,8 +48,7 @@ if (APPLE)
             ${MINILIBX}
             ${MLX_LIB})
 else ()
-    include_directories(minilibx)
-    find_library(MINILIBX mlx minilibx)
+
     target_link_libraries(cub3d LINK_PUBLIC ${LIBFT}
             ${MINILIBX}
             -Imlx Xext X11 m z bsd)
