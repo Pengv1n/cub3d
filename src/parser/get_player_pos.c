@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 void	save_player_dir(t_data *data, char dir, int i, int j)
 {

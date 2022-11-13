@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 void	init_raycastring(t_data *data, int x)
 {
@@ -72,7 +72,7 @@ void	algo_dda(t_data *data, t_raycast *rc)
 			rc->map_y += rc->step_y;
 			rc->side = 1;
 		}
-		if (data->map[(int)rc->map_y][(int)rc->map_x] == '1')
+		if (data->map[rc->map_y][rc->map_x] == '1')
 			hit = 1;
 	}
 }

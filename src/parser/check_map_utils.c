@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 int	check_empty_spaces(t_data *data, int i, int j)
 {

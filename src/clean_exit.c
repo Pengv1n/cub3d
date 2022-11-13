@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../Include/cub3d.h"
 
 void	clean_exit(t_data *data, int fd_gnl, int fd, char *msg)
 {

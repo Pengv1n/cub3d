@@ -14,16 +14,18 @@
 # define CUB3D_H
 
 # include <stdio.h>
-# include "libft/libft.h"
-# include "minilibx_opengl_20191021/mlx.h"
+# include "../libft/libft.h"
+# include "mlx.h"
 # include <fcntl.h>
-# include "get_next_line/get_next_line.h"
+# include "get_next_line.h"
 # include <math.h>
 
 # define NO_WALL			0
 # define SO_WALL			1
 # define EA_WALL			2
 # define WE_WALL			3
+
+# define EPS    1e-4
 
 # define SPEED			0.15
 # define ROTATE			0.10
@@ -159,7 +161,7 @@ int		check_nb_element_rgb(char **info);
 int		loading_txts(t_data *data, t_txt *texture);
 void	init_plan(t_data *data);
 void	init_ray_dir(t_data *data);
-int		game_launcher(t_data *data);
+void	game_launcher(t_data *data);
 void	player_move(t_data *data, t_raycast *rc);
 int		choice_texture(int side);
 int		trgb_convert(int i, int r, int g, int b);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../Include/get_next_line.h"
 
 void	piece_or_null(char **text, char **line)
 {

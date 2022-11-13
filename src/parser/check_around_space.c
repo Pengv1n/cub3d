@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 static int	check_line(t_data *data, int pos_i, int pos_j)
 {

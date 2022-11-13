@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 int	loading_txts(t_data *data, t_txt *texture)
 {

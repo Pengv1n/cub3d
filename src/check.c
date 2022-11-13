@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../Include/cub3d.h"
 
 int	ft_namecheck(char *argv, char *ext)
 {

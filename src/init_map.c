@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../Include/cub3d.h"
 
 void	alloc_map(t_data *data, int fd)
 {

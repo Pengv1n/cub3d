@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 void	move_up_down(t_data *data, t_raycast *rc)
 {
 	if (data->key_w == 1)
 	{
 		if (data->map[(int)data->player_pos_y]
-			[(int)(data->player_pos_x + rc->dir_x * SPEED)] != '1')
+			[(int)(data->player_pos_x + rc->dir_x * SPEED + EPS)] != '1')
 			data->player_pos_x += rc->dir_x * SPEED;
-		if (data->map[(int)(data->player_pos_y + rc->dir_y * SPEED)]
+		if (data->map[(int)(data->player_pos_y + rc->dir_y * SPEED + EPS) ]
 			[(int)data->player_pos_x] != '1')
 			data->player_pos_y += rc->dir_y * SPEED;
 	}
 	if (data->key_s == 1)
 	{
 		if (data->map[(int)data->player_pos_y]
-			[(int)(data->player_pos_x - rc->dir_x * SPEED)] != '1')
+			[(int)(data->player_pos_x - rc->dir_x * SPEED - EPS)] != '1')
 			data->player_pos_x -= rc->dir_x * SPEED;
-		if (data->map[(int)(data->player_pos_y - rc->dir_y * SPEED)]
+		if (data->map[(int)(data->player_pos_y - rc->dir_y * SPEED - EPS)]
 			[(int)data->player_pos_x] != '1')
 			data->player_pos_y -= rc->dir_y * SPEED;
 	}
@@ -38,8 +38,8 @@ void	move_left_right(t_data *data, t_raycast *rc)
 {
 	if (data->key_a == 1)
 	{
-		if (data->map[(int)(data->player_pos_y - rc->dir_x * SPEED)]
-			[(int)(data->player_pos_x + rc->dir_y * SPEED)] != '1')
+		if (data->map[(int)(data->player_pos_y - rc->dir_x * SPEED - EPS)]
+			[(int)(data->player_pos_x + rc->dir_y * SPEED + EPS)] != '1')
 		{
 			data->player_pos_x += rc->dir_y * SPEED;
 			data->player_pos_y -= rc->dir_x * SPEED;
@@ -47,8 +47,8 @@ void	move_left_right(t_data *data, t_raycast *rc)
 	}
 	else if (data->key_d == 1)
 	{
-		if (data->map[(int)(data->player_pos_y - rc->dir_x * SPEED)]
-			[(int)(data->player_pos_x - rc->dir_y * SPEED)] != '1')
+		if (data->map[(int)(data->player_pos_y + rc->dir_x * SPEED + EPS)]
+			[(int)(data->player_pos_x - rc->dir_y * SPEED - EPS)] != '1')
 		{
 			data->player_pos_x -= rc->dir_y * SPEED;
 			data->player_pos_y += rc->dir_x * SPEED;

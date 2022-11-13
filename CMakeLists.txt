@@ -10,7 +10,7 @@ add_executable(cub3d src/main.c
         src/init_map.c
         src/clean_exit.c
         src/free_utils.c
-        get_next_line/get_next_line.c
+        src/get_next_line/get_next_line.c
 
         src/parser/read_file.c
         src/parser/open_file.c
@@ -32,14 +32,20 @@ add_executable(cub3d src/main.c
         src/game/raycasting.c
         )
 
-if (UNIX)
-    target_link_libraries(cub3d LINK_PUBLIC /home/aregenia/school21/cub3d/libft/libft.a
-        /home/aregenia/school21/cub3d/minilibx_opengl_20191021/libmlx.a
-        -Imlx Xext X11 m z bsd)
-endif()
+include_directories(minilibx_opengl_20191021)
 
-if (APPLE)
+#if (__UNIX__)
+#    target_link_libraries(cub3d LINK_PUBLIC /home/aregenia/school21/cub3d/libft/libft.a
+#        /home/aregenia/school21/cub3d/minilibx_opengl_20191021/libmlx.a
+#        -Imlx Xext X11 m z bsd)
+#endif()
+
+#if (__APPLE__)
+    find_library(OPENGL_LIB OpenGL)
+    find_library(APPKIT_LIB AppKit)
+    set(MLX_LIB z m ${OPENGL_LIB} ${APPKIT_LIB})
+
     target_link_libraries(cub3d LINK_PUBLIC /Users/aregenia/Projects/cub3d/libft/libft.a
             /Users/aregenia/Projects/cub3d/minilibx_opengl_20191021/libmlx.a
             ${MLX_LIB})
-endif()
+#endif()

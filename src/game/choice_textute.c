@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 int	trgb_convert(int t, int r, int g, int b)
 {
@@ -26,10 +26,10 @@ int	trgb_convert(int t, int r, int g, int b)
 int	choice_texture(int side)
 {
 	if (side == 0)
-		return (SO_WALL);
+		return (NO_WALL);
 	else if (side == 1)
 		return (EA_WALL);
 	else if (side == 2)
-		return (NO_WALL);
+		return (SO_WALL);
 	return (WE_WALL);
 }

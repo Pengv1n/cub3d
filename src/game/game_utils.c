@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../Include/cub3d.h"
 
 void	fill_path(t_data *data)
 {
@@ -57,7 +57,7 @@ int	init_txts_struct(t_data *data)
 	return (1);
 }
 
-int	game_launcher(t_data *data)
+void    game_launcher(t_data *data)
 {
 	if (!init_txts_struct(data))
 		clean_exit(data, -1, 2, "Error: textures loading failed\n");
