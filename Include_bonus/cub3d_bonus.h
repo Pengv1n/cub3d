@@ -17,7 +17,7 @@
 # include "../libft/libft.h"
 # include "../minilibx_linux/mlx.h"
 # include <fcntl.h>
-# include "get_next_line.h"
+# include "get_next_line_bonus.h"
 # include <math.h>
 
 # define HEIGHT_SCREEN	1040
@@ -132,6 +132,9 @@ typedef struct s_data
 	int			key_d;
 	int			key_rotate_left;
 	int			key_rotate_right;
+	int			key_mouse;
+	int			pred_x;
+	int			x_mouse;
 }	t_data;
 
 void	init_data(t_data *data);
@@ -167,5 +170,7 @@ void	print_txts(int x, t_data *data, t_raycast *rc);
 int		raycasting(t_data *data, t_raycast *rc);
 void	game_loop(t_data *data);
 int		check_texture_path(char *path);
+void	rotate_left_or_right(t_raycast *rc, double rotate);
+void	edge_screen(t_data *data, int x, int y);
 
 #endif //CUB3D_CUB3D_H
