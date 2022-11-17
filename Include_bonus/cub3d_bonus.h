@@ -21,14 +21,26 @@
 # include <math.h>
 
 # define HEIGHT_SCREEN	1040
-# define WIDTH_SCREEN	1920
+# define WIDTH_SCREEN	(HEIGHT_SCREEN / 9 * 16)
+
+# define MINIMAP_H	(HEIGHT_SCREEN / 8)
+# define MINIMAP_W	(MINIMAP_H * 2)
+# define BORDER			3
+# define PADDING_X	50
+# define PADDING_Y	50
+# define CENTER_Y	(MINIMAP_H / 2)
+# define CENTER_X	(MINIMAP_W / 2)
+# define DIST_PER_PIXEL	0.15
+# define WALL_COLOR			0xFFFFFF
+# define PLAYER_COLOR		0x00FF00
+# define BORDER_COLOR		0x303030
 
 # define NO_WALL			0
 # define SO_WALL			1
 # define EA_WALL			2
 # define WE_WALL			3
 
-# define SPEED			0.1
+# define SPEED			(HEIGHT_SCREEN / 10000.0)
 # define CHECK_SPEED    (SPEED + 0.05)
 # define ROTATE			0.10
 
@@ -132,10 +144,14 @@ typedef struct s_data
 	int			key_d;
 	int			key_rotate_left;
 	int			key_rotate_right;
-	int			key_mouse;
 	int			pred_x;
-	int			x_mouse;
 }	t_data;
+
+typedef struct s_point
+{
+	double	x;
+	double	y;
+}	t_point;
 
 void	init_data(t_data *data);
 void	init_mlx(t_data *data);
@@ -172,5 +188,7 @@ void	game_loop(t_data *data);
 int		check_texture_path(char *path);
 void	rotate_left_or_right(t_raycast *rc, double rotate);
 void	edge_screen(t_data *data, int x, int y);
+void	map2d(t_data *data);
+void	drawLine(t_data *data, t_point *p1, t_point *p2);
 
 #endif //CUB3D_CUB3D_H

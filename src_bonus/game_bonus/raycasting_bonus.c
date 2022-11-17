@@ -111,6 +111,15 @@ int	raycasting(t_data *data, t_raycast *rc)
 		init_raycastring(data, x);
 		side_dist(data, rc);
 		algo_dda(data, rc);
+
+		t_point	pl;
+		pl.x = data->player_pos_x;
+		pl.y = data->player_pos_y;
+		t_point	pd;
+		pd.x = rc->map_x * rc->ray_dir_x;
+		pd.y = rc->map_y * rc->ray_dir_y;
+
+		drawLine(data, &pl, &pd);
 		wall_dist(data);
 		print_txts(x, data, rc);
 	}

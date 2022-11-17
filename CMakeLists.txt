@@ -34,6 +34,7 @@ add_executable(cub3d_bonus src_bonus/main_bonus.c
         src_bonus/game_bonus/player_move_bonus.c
         src_bonus/game_bonus/raycasting_bonus.c
         src_bonus/game_bonus/mouse_utils_bonus.c
+        src_bonus/game_bonus/minimap_bonus.c
 )
 
 add_executable(cub3d src/main.c
