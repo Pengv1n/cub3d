@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <stdio.h>
 # include "../libft/libft.h"
@@ -21,15 +21,15 @@
 # include <math.h>
 
 # define HEIGHT_SCREEN	1040
-# define WIDTH_SCREEN	(HEIGHT_SCREEN / 9 * 16)
+# define WIDTH_SCREEN   1920
 
-# define MINIMAP_H	(HEIGHT_SCREEN / 8)
-# define MINIMAP_W	(MINIMAP_H * 2)
+# define MINIMAP_H	200
+# define MINIMAP_W	400
 # define BORDER			3
 # define PADDING_X	50
 # define PADDING_Y	50
-# define CENTER_Y	(MINIMAP_H / 2)
-# define CENTER_X	(MINIMAP_W / 2)
+# define CENTER_Y	100
+# define CENTER_X	200
 # define DIST_PER_PIXEL	0.15
 # define WALL_COLOR			0xFFFFFF
 # define PLAYER_COLOR		0xFFFF00
@@ -184,4 +184,4 @@ void	rotate_left_or_right(t_raycast *rc, double rotate);
 void	edge_screen(t_data *data, int x, int y);
 void	map2d(t_data *data);
 
-#endif //CUB3D_CUB3D_H
+#endif //CUB3D_BONUS_H
