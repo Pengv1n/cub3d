@@ -28,8 +28,8 @@
 # define EA_WALL			2
 # define WE_WALL			3
 
-# define SPEED			(HEIGHT_SCREEN / 10000.0)
-# define CHECK_SPEED	(SPEED + 0.05)
+# define SPEED			0.1
+# define CHECK_SPEED	0.15
 # define ROTATE			0.10
 
 # ifdef __APPLE__
