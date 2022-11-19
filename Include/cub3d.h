@@ -29,7 +29,7 @@
 # define WE_WALL			3
 
 # define SPEED			0.1
-# define CHECK_SPEED    (SPEED + 0.05)
+# define CHECK_SPEED	(SPEED + 0.05)
 # define ROTATE			0.10
 
 # ifdef __APPLE__

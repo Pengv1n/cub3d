@@ -32,7 +32,7 @@
 # define CENTER_X	(MINIMAP_W / 2)
 # define DIST_PER_PIXEL	0.15
 # define WALL_COLOR			0xFFFFFF
-# define PLAYER_COLOR		0x00FF00
+# define PLAYER_COLOR		0xFFFF00
 # define BORDER_COLOR		0x303030
 
 # define NO_WALL			0

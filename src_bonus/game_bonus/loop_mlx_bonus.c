@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Include_bonus//cub3d_bonus.h"
+#include "../../Include_bonus/cub3d_bonus.h"
 
 int	exit_game(t_data *data)
 {
@@ -64,39 +64,6 @@ int	key_release(int key, t_data *data)
 	return (1);
 }
 
-void	print_y(char *map)
-{
-	int	i;
-
-	i = -1;
-	while (map[++i])
-	{
-		if (map[i] == '0')
-			write(1, "\e[42m0", 6);
-		else if (map[i] == '1')
-			write(1, "\e[0;101m1", 9);
-		else
-		{
-			char *t = ft_strjoin("\e[0m", &map[i]);
-			write(1, t, 5);
-		}
-	}
-}
-
-void	print_map(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	int	x_pos = (int)data->player_pos_x;
-	int	y_pos = (int)data->player_pos_y;
-	char **map = data->map;
-	while (map[++i])
-	{
-		print_y(map[i]);
-	}
-}
-
 int	game_update(t_data *data)
 {
 	player_move(data, data->raycast);
@@ -104,8 +71,6 @@ int	game_update(t_data *data)
 	map2d(data);
 	mlx_put_image_to_window(data->mlx->mlx, data->mlx->win,
 		data->ptr_img->img, 0, 0);
-	print_map(data);
-	write(1, "\n", 1);
 	return (1);
 }
 

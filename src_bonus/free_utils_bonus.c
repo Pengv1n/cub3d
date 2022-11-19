@@ -59,6 +59,7 @@ void	free_all(t_data *data)
 		free_map(data);
 	if (data->mlx)
 	{
+		free(data->mlx->win);
 		free(data->mlx->mlx);
 		free(data->mlx);
 	}

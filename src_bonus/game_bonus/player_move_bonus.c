@@ -82,15 +82,15 @@ void	ft_mouse(t_data *data, t_raycast *rc)
 	{
 		mlx_mouse_get_pos(data->mlx->mlx, data->mlx->win, &x, &y);
 		if (data->pred_x == x)
-			return;
+			return ;
 		if (x == data->width_screen - 1 || x == 0)
-			return edge_screen(data, x, y);
+			return (edge_screen(data, x, y));
 		rotate_left_or_right(rc, (x - data->pred_x) / 5.0);
 	}
 	else
 	{
 		mlx_mouse_move(data->mlx->mlx, data->mlx->win,
-					   data->width_screen / 2, data->height_screen / 2);
+			data->width_screen / 2, data->height_screen / 2);
 		x = data->width_screen / 2;
 	}
 	data->pred_x = x;
