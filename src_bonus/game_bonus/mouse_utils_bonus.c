@@ -22,6 +22,6 @@ void	edge_screen(t_data *data, int x, int y)
 	{
 		x = data->width_screen - 1;
 	}
-	mlx_mouse_move(data->mlx->mlx, data->mlx->win, x, y);
+	mlx_mouse_move(data->mlx->win, x, y);
 	data->pred_x = x;
 }

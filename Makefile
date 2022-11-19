@@ -2,14 +2,12 @@ CC := gcc
 
 NAME := cub3d
 
-MINILIBX_DIR := minilibx_linux
-MINILIBX_LIB := $(MINILIBX_DIR)/libmlx_Linux.a
+MINILIBX_DIR := minilibx_opengl_20191021
+MINILIBX_LIB := $(MINILIBX_DIR)/libmlx.a
 
 FLAGS := -Wall -Wextra -Werror
-#MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm	\
-#                      -framework OpenGL					\
-#                      -framework AppKit
-MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz
+MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm -framework OpenGL -framework AppKit
+#MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz
 
 LIBFT_DIR := libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -71,6 +69,7 @@ SRC_BONUS_ :=	main_bonus.c							\
                 game_bonus/player_move_bonus.c			\
                 game_bonus/raycasting_bonus.c			\
                 game_bonus/mouse_utils_bonus.c			\
+                game_bonus/minimap_bonus.c				\
                 get_next_line_bonus/get_next_line_bonus.c
 
 SRC := 	$(addprefix $(SRC_DIR)/,$(SRC_))
@@ -79,8 +78,8 @@ SRC_BONUS := $(addprefix $(SRC_DIR_BONUS)/,$(SRC_BONUS_))
 
 OBJ_DIR := obj
 
-INCLUDES 		:= -I$(LIBFT_DIR) -I Include -I$(MINILIBX_DIR)
-INCLUDES_BONUS 	:= -I$(LIBFT_DIR) -I Include_bonus -I$(MINILIBX_DIR)
+INCLUDES 		:= -I$(LIBFT_DIR) -IInclude -I$(MINILIBX_DIR)
+INCLUDES_BONUS 	:= -I$(LIBFT_DIR) -IInclude_bonus -I$(MINILIBX_DIR)
 
 .o: .c
 		$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@

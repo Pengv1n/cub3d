@@ -80,7 +80,7 @@ void	ft_mouse(t_data *data, t_raycast *rc)
 
 	if (data->pred_x != 10000)
 	{
-		mlx_mouse_get_pos(data->mlx->mlx, data->mlx->win, &x, &y);
+		mlx_mouse_get_pos(data->mlx->win, &x, &y);
 		if (data->pred_x == x)
 			return ;
 		if (x == data->width_screen - 1 || x == 0)
@@ -89,7 +89,7 @@ void	ft_mouse(t_data *data, t_raycast *rc)
 	}
 	else
 	{
-		mlx_mouse_move(data->mlx->mlx, data->mlx->win,
+		mlx_mouse_move(data->mlx->win,
 			data->width_screen / 2, data->height_screen / 2);
 		x = data->width_screen / 2;
 	}

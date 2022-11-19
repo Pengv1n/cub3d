@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include "../libft/libft.h"
-# include "../minilibx_linux/mlx.h"
+# include "../minilibx_opengl_20191021/mlx.h"
 # include <fcntl.h>
 # include "get_next_line.h"
 # include <math.h>
@@ -28,7 +28,7 @@
 # define EA_WALL			2
 # define WE_WALL			3
 
-# define SPEED			0.1
+# define SPEED			(HEIGHT_SCREEN / 10000.0)
 # define CHECK_SPEED	(SPEED + 0.05)
 # define ROTATE			0.10
 

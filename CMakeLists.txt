@@ -66,15 +66,15 @@ add_executable(cub3d src/main.c
         src/game/raycasting.c
 )
 
-add_custom_target(mlx ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_linux)
+add_custom_target(mlx ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_opengl_20191021)
 add_custom_target(libft ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/libft)
 
 find_library(LIBFT ft libft)
 include_directories(minilibx_linux)
-include_directories(minilibx)
+include_directories(minilibx_opengl_20191021)
 
 find_library(MINILIBX_LINUX NAMES mlx_Linux PATHS minilibx_linux NO_DEFAULT_PATH)
-find_library(MINILIBX NAMES mlx PATHS minilibx NO_DEFAULT_PATH)
+find_library(MINILIBX NAMES mlx PATHS minilibx_opengl_20191021 NO_DEFAULT_PATH)
 
 target_include_directories(cub3d PUBLIC Include)
 target_include_directories(cub3d_bonus PUBLIC Include_bonus)
@@ -85,6 +85,10 @@ if (APPLE)
     set(MLX_LIB z m ${OPENGL_LIB} ${APPKIT_LIB})
 
     target_link_libraries(cub3d LINK_PUBLIC ${LIBFT}
+            ${MINILIBX}
+            ${MLX_LIB})
+
+    target_link_libraries(cub3d_bonus LINK_PUBLIC ${LIBFT}
             ${MINILIBX}
             ${MLX_LIB})
 else ()

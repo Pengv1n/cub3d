@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include "../libft/libft.h"
-# include "../minilibx_linux/mlx.h"
+# include "../minilibx_opengl_20191021/mlx.h"
 # include <fcntl.h>
 # include "get_next_line_bonus.h"
 # include <math.h>
@@ -147,12 +147,6 @@ typedef struct s_data
 	int			pred_x;
 }	t_data;
 
-typedef struct s_point
-{
-	double	x;
-	double	y;
-}	t_point;
-
 void	init_data(t_data *data);
 void	init_mlx(t_data *data);
 int		open_file(char *path);
@@ -189,6 +183,5 @@ int		check_texture_path(char *path);
 void	rotate_left_or_right(t_raycast *rc, double rotate);
 void	edge_screen(t_data *data, int x, int y);
 void	map2d(t_data *data);
-void	drawLine(t_data *data, t_point *p1, t_point *p2);
 
 #endif //CUB3D_CUB3D_H
