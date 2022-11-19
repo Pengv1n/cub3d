@@ -2,14 +2,12 @@ CC := gcc
 
 NAME := cub3d
 
-MINILIBX_DIR := minilibx_linux
-MINILIBX_LIB := $(MINILIBX_DIR)/libmlx_Linux.a
+MINILIBX_DIR := minilibx_opengl_20191021
+MINILIBX_LIB := $(MINILIBX_DIR)/libmlx.a
 
 FLAGS := -Wall -Wextra -Werror
-#MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm	\
-#                      -framework OpenGL					\
-#                      -framework AppKit
-MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz
+MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm -framework OpenGL -framework AppKit
+#MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz
 
 LIBFT_DIR := libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -82,11 +80,11 @@ OBJ_DIR := obj
 INCLUDES 		:= -I$(LIBFT_DIR) -I Include -I$(MINILIBX_DIR)
 INCLUDES_BONUS 	:= -I$(LIBFT_DIR) -I Include_bonus -I$(MINILIBX_DIR)
 
-.o: .c
-		$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
-
 OBJ := $(SRC:.c=.o)
 OBJ_BONUS := $(SRC_BONUS:.c=.o)
+
+.o: .c
+	$(CC) $(FLAGS) $(INCLUDES_BONUS) -c $< -o $@
 
 all:
 	$(MAKE) -j $(NAME)
