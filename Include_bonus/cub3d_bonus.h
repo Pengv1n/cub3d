@@ -15,21 +15,21 @@
 
 # include <stdio.h>
 # include "../libft/libft.h"
-# include "../minilibx_opengl_20191021/mlx.h"
+# include "../minilibx_linux/mlx.h"
 # include <fcntl.h>
 # include "get_next_line_bonus.h"
 # include <math.h>
 
-# define HEIGHT_SCREEN	1040
+# define HEIGHT_SCREEN	1200
 # define WIDTH_SCREEN   1920
 
-# define MINIMAP_H	200
-# define MINIMAP_W	400
+# define MINIMAP_H	100
+# define MINIMAP_W	200
 # define BORDER			3
 # define PADDING_X	50
 # define PADDING_Y	50
-# define CENTER_Y	100
-# define CENTER_X	200
+# define CENTER_Y	(MINIMAP_H / 2)
+# define CENTER_X	(MINIMAP_W / 2)
 # define DIST_PER_PIXEL	0.15
 # define WALL_COLOR			0xFFFFFF
 # define PLAYER_COLOR		0xFFFF00
@@ -40,9 +40,9 @@
 # define EA_WALL			2
 # define WE_WALL			3
 
-# define SPEED			0.1
-# define CHECK_SPEED	0.15
-# define ROTATE			0.10
+# define SPEED			(WIDTH_SCREEN / 50000.0)
+# define CHECK_SPEED	(SPEED + 0.05)
+# define ROTATE			(WIDTH_SCREEN / 50000.0)
 
 # ifdef __APPLE__
 #  define A_KEY 		0

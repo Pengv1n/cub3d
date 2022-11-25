@@ -2,12 +2,12 @@ CC := gcc
 
 NAME := cub3d
 
-MINILIBX_DIR := minilibx_opengl_20191021
+MINILIBX_DIR := minilibx_linux
 MINILIBX_LIB := $(MINILIBX_DIR)/libmlx.a
 
 FLAGS := -Wall -Wextra -Werror
-MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm -framework OpenGL -framework AppKit
-#MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz
+#MINILIBX_FLAGS := -L$(MINILIBX_DIR) -lmlx -lz -lm -framework OpenGL -framework AppKit
+MINILIBX_FLAGS := -Imlx -lXext -lX11 -lm -lz -lbsd
 
 LIBFT_DIR := libft
 LIBFT := $(LIBFT_DIR)/libft.a

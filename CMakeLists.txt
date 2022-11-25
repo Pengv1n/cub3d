@@ -66,7 +66,7 @@ add_executable(cub3d src/main.c
         src/game/raycasting.c
 )
 
-add_custom_target(mlx ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_opengl_20191021)
+add_custom_target(mlx ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/minilibx_linux)
 add_custom_target(libft ALL COMMAND make -C ${CMAKE_CURRENT_SOURCE_DIR}/libft)
 
 find_library(LIBFT ft libft)
