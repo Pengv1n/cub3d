@@ -16,3 +16,9 @@
    <li>Minimap</li>
   </ul>
 </p>
+<h3>
+  Compiling the program
+</h3>
+<p>
+  After cloning repository, your may write <b>make all</b> of Makefile at console current directory or make bonus 
+</p>
