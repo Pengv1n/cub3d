@@ -61,3 +61,9 @@ C 3,213,255
 <p>
   The ceiling and floor are set with colors encoded in RGB format
 </p>
+<h3>
+  Сontrols:
+</h3>
+<p>
+  The movement is carried out using the WASD keys, turns to the left and right arrows.
+</p>
