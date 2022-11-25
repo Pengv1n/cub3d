@@ -29,13 +29,13 @@
 <p>
   ./cub gets *.cub file that looks like this:
 </p>  
+
 ```
 NO ./txts_xpm/WOLF1.xpm
 SO ./txts_xpm/WOLF2.xpm
 WE ./txts_xpm/WOLF3.xpm
 EA ./txts_xpm/WOLF4.xpm
-```
-```
+
 F 255,0,98
 C 3,213,255
 
