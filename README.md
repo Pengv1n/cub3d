@@ -20,8 +20,8 @@
   Compiling the program
 </h3>
 <p>
-  After cloning repository, your may write <b>make all</b> for Makefile at console current directory or <b>make bonus</b>
-  <p>Also your use CMake</p>
+    After cloning repository, your may write <b>make all</b> for Makefile at console current directory or <b>make bonus</b>
+  <p> Also your use CMake</p>
 </p>
 <h3>
   Execute programm
