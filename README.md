@@ -58,3 +58,6 @@ C 3,213,255
 <p>
   The first four lines are responsible for the texture files for each direction, the files must be in the format .XPM, because the minilibx library has the ability to read only such an image. There have been attempts to add the ability to read .png files, but this function is only available in the library for macOS :(
 </p>
+<p>
+  The ceiling and floor are set with colors encoded in RGB format
+</p>
