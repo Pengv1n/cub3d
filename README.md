@@ -8,3 +8,11 @@
 <h2>
   <img alt="" src="https://lodev.org/cgtutor/images/wolf3d.jpg" style="width: 320px; height: 200px;">
 </h2>
+<h2>
+  The project implements:
+  <ul>
+   <li>Сoliseum</li>
+   <li>Mouse control</li>
+   <li>Minimap</li>
+  </ul>
+</h2>
