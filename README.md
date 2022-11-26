@@ -24,7 +24,7 @@
   <p> Also your use CMake</p>
 </p>
 <h3>
-  Execute programm
+  Execute program
 </h3>
 <p>
   ./cub gets *.cub file that looks like this:
